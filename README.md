@@ -40,7 +40,7 @@ ImGui_ImplPlume_RenderDrawData(ImGui::GetDrawData(), commandList); // Renders th
 And at the end of your program, you have to properly free the devices created
 
 ```c++
-if (auto* vkDevice = dynamic_cast<plume::VulkanDevice*>(renderDevice)) vkDeviceWaitIdle(vkDevice->vk); // Optional, but better for cleanliness
+if (auto* vkDevice = dynamic_cast<plume::VulkanDevice*>(renderDevice)) vkDeviceWaitIdle(vkDevice->vk); // Optional, but better for cleanliness. Only when using Vulkan
 
 ImGui_ImplPlume_Shutdown(); // Destroys and frees the devices created by the implementation
 
