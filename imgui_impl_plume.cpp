@@ -2,6 +2,24 @@
 
 // Mainly inspired by imgui_impl_vulkan in imgui (https://github.com/ocornut/imgui/blob/master/backends/imgui_impl_vulkan.cpp)
 
+// Vertex shader - same as in imgui_impl_vulkan
+//
+// #version 460 core
+// layout(location = 0) in vec2 aPos;
+// layout(location = 1) in vec2 aUV;
+// layout(location = 2) in vec4 aColor;
+// layout(push_constant) uniform uPushConstant { vec2 uScale; vec2 uTranslate; } pc;
+// 
+// out gl_PerVertex { vec4 gl_Position; };
+// layout(location = 0) out struct { vec4 Color; vec2 UV; } Out;
+// 
+// void main()
+// {
+//     Out.Color = aColor;
+//     Out.UV = aUV;
+//     gl_Position = vec4(aPos * pc.uScale + pc.uTranslate, 0, 1);
+// }
+
 static const unsigned char imgui_vs_shader[] = {
   0x03, 0x02, 0x23, 0x07, 0x00, 0x00, 0x01, 0x00, 0x0b, 0x00, 0x08, 0x00, 0x2e, 0x00, 0x00, 0x00,
   0x00, 0x00, 0x00, 0x00, 0x11, 0x00, 0x02, 0x00, 0x01, 0x00, 0x00, 0x00, 0x0b, 0x00, 0x06, 0x00,
@@ -86,6 +104,20 @@ static const unsigned char imgui_vs_shader[] = {
   0x2d, 0x00, 0x00, 0x00, 0x2c, 0x00, 0x00, 0x00, 0xfd, 0x00, 0x01, 0x00, 0x38, 0x00, 0x01, 0x00
 };
 
+// Pixel/Fragment shader - alterted from imgui_impl_vulkan, because plume doesn't support SAMPLER + TEXTURE2D
+//
+// #version 460 core
+// layout(location = 0) out vec4 fColor;
+// 
+// layout(set=0, binding=0) uniform sampler sSampler;
+// layout(set=0, binding=1) uniform texture2D sTexture;
+// 
+// layout(location = 0) in struct { vec4 Color; vec2 UV; } In;
+// 
+// void main()
+// {
+//     fColor = In.Color * texture(sampler2D(sTexture, sSampler), In.UV.st);
+// }
 
 static const unsigned char imgui_ps_shader[] = {
   0x03, 0x02, 0x23, 0x07, 0x00, 0x00, 0x01, 0x00, 0x0b, 0x00, 0x08, 0x00, 0x23, 0x00, 0x00, 0x00,
