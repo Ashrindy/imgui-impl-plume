@@ -51,4 +51,5 @@ ImGui::DestroyContext(); // Then you destroy the context of imgui itself
 # Credits
 
 [Unleashed Recomp](https://github.com/hedge-dev/UnleashedRecomp) - Font texture creation inspired and partially taken from there
+
 [imgui](https://github.com/ocornut/imgui) - Heavily inspired by [imgui_impl_vulkan](https://github.com/ocornut/imgui)
