@@ -2,6 +2,10 @@
 
 A very barebones [imgui](https://github.com/ocornut/imgui) implementation for [plume](https://github.com/renderbag/plume) RHI
 
+# Dependencies
+
+Requires [imgui](https://github.com/ocornut/imgui) and [plume](https://github.com/renderbag/plume)
+
 # Usage
 
 At initialization, you have to init the render devices and font textures of the implementation, by doing this.
