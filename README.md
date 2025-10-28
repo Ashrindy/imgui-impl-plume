@@ -34,3 +34,4 @@ ImGui_ImplPlume_Shutdown(); // Destroys and frees the devices created by the imp
 # Credits
 
 [Unleashed Recomp](https://github.com/hedge-dev/UnleashedRecomp) - Font texture creation inspired and partially taken from there
+[imgui](https://github.com/ocornut/imgui) - Heavily inspired by [imgui_impl_vulkan](https://github.com/ocornut/imgui)
