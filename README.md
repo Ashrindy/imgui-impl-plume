@@ -13,7 +13,7 @@ ImGui::CreateContext();
 // ImGui_ImplXXXX_InitForOther(window); - based on your windowing api of choice you need to always run "InitForOther"
 
 ImGui_ImplPlume_InitInfo initInfo {
-    .interface = renderInterface, // renderInterface is a variable created by the user for their rendering
+    .rInterface = renderInterface, // renderInterface is a variable created by the user for their rendering
     .device = renderDevice // renderDevice is a variable created by the user for their rendering
 }; // Creates the init info
 ImGui_ImplPlume_Init(initInfo); // Initializes the implementation

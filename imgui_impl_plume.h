@@ -3,7 +3,7 @@
 #include <imgui.h>
 
 struct ImGui_ImplPlume_InitInfo {
-	plume::RenderInterface* interface;
+	plume::RenderInterface* rInterface;
 	plume::RenderDevice* device;
 };
 
