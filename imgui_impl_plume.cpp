@@ -254,7 +254,7 @@ bool ImGui_ImplPlume_Init(ImGui_ImplPlume_InitInfo& info) {
     if (!texCmdList)
         texCmdList = cmdQueue->createCommandList();
 
-    RenderShaderFormat shaderFormat = initInfo.interface->getCapabilities().shaderFormat;
+    RenderShaderFormat shaderFormat = initInfo.rInterface->getCapabilities().shaderFormat;
 
     std::unique_ptr<RenderShader> vertexShader;
     std::unique_ptr<RenderShader> fragmentShader;
